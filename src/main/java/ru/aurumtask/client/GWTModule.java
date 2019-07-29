@@ -29,10 +29,10 @@ public class GWTModule implements EntryPoint {
     public void onModuleLoad() {
         final TransportProperties properties = GWT.create(TransportProperties.class);
         final List<ColumnConfig<TransportEntity, ?>> columns = new ArrayList<ColumnConfig<TransportEntity, ?>>();
-        ColumnConfig<TransportEntity, Integer> colIdtransport = new ColumnConfig<TransportEntity, Integer>(properties.Idtransport(), 55, "idtransport");
+        ColumnConfig<TransportEntity, Integer> colIdtransport = new ColumnConfig<TransportEntity, Integer>(properties.idtransport(), 55, "idtransport");
         ColumnConfig<TransportEntity, String> colstateNumber = new ColumnConfig<TransportEntity, String>(properties.stateNumber(), 150, "stateNumber");
-        ColumnConfig<TransportEntity, String> colUin = new ColumnConfig<TransportEntity, String>(properties.Uin(), 55, "uin");
-        ColumnConfig<TransportEntity, String> colParkName = new ColumnConfig<TransportEntity, String>(properties.Parkname(), 150, "parkname");
+        ColumnConfig<TransportEntity, String> colUin = new ColumnConfig<TransportEntity, String>(properties.uin(), 55, "uin");
+        ColumnConfig<TransportEntity, String> colParkName = new ColumnConfig<TransportEntity, String>(properties.parkname(), 150, "parkname");
         columns.add(colIdtransport);
         columns.add(colstateNumber);
         columns.add(colUin);
@@ -65,7 +65,6 @@ public class GWTModule implements EntryPoint {
                 editing.addEditor(colIdtransport, new IntegerField());
 
                 VerticalLayoutContainer verticalLayoutContainer = new VerticalLayoutContainer();
-                //verticalLayoutContainer.add(toolBar, new VerticalLayoutContainer.VerticalLayoutData(1, -1));
                 verticalLayoutContainer.add(grid, new VerticalLayoutContainer.VerticalLayoutData(1, 1));
 
                 FramedPanel framedPanel = new FramedPanel();
@@ -73,6 +72,23 @@ public class GWTModule implements EntryPoint {
                 framedPanel.setPixelSize(640, 480);
                 framedPanel.setHeight(480);
                 framedPanel.add(verticalLayoutContainer);
+
+                framedPanel.addButton(new TextButton("Add", new SelectEvent.SelectHandler() {
+                    @Override
+                    public void onSelect(SelectEvent event) {
+                        TransportEntity item = new TransportEntity();
+                        item.setIdtransport(result.size());
+                        item.setStateNumber("RUS");
+                        item.setParkname("");
+                        item.setUin("1");
+
+                        editing.cancelEditing();
+                        store.add(0, item);
+
+                        int row = store.indexOf(item);
+                        editing.startEditing(new Grid.GridCell(row, 0));
+                    }
+                }));
                 framedPanel.addButton(new TextButton("Reset", new SelectEvent.SelectHandler() {
                     @Override
                     public void onSelect(SelectEvent event) {
@@ -86,8 +102,8 @@ public class GWTModule implements EntryPoint {
                     }
                 }));
                 RootPanel.get().add(framedPanel);
-                MessageBox messageBox = new MessageBox(result.get(0).getStateNumber(), store.get(0).getStateNumber());
-                messageBox.show();
+//                MessageBox messageBox = new MessageBox(result.get(0).getStateNumber(), store.get(0).getStateNumber());
+//                messageBox.show();
             }
         });
         //End of onModuleLoad

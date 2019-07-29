@@ -6,12 +6,12 @@ import com.sencha.gxt.data.shared.ModelKeyProvider;
 import com.sencha.gxt.data.shared.PropertyAccess;
 
 public interface TransportProperties extends PropertyAccess<TransportEntity> {
-    @Path("Idtransport")
+    @Path("idtransport")
     ModelKeyProvider<TransportEntity> key();
 
-    ValueProvider<TransportEntity, Integer> Idtransport();
+    ValueProvider<TransportEntity, Integer> idtransport();
     ValueProvider<TransportEntity, String> stateNumber();
-    ValueProvider<TransportEntity, String> Uin();
-    ValueProvider<TransportEntity, String> Parkname();
+    ValueProvider<TransportEntity, String> uin();
+    ValueProvider<TransportEntity, String> parkname();
 
 }
