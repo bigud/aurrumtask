@@ -29,10 +29,10 @@ public class GWTModule implements EntryPoint {
     public void onModuleLoad() {
         final TransportProperties properties = GWT.create(TransportProperties.class);
         final List<ColumnConfig<TransportEntity, ?>> columns = new ArrayList<ColumnConfig<TransportEntity, ?>>();
-        ColumnConfig<TransportEntity, Integer> colIdtransport = new ColumnConfig<TransportEntity, Integer>(properties.attributeIdtransport(), 55, "idtransport");
-        ColumnConfig<TransportEntity, String> colstateNumber = new ColumnConfig<TransportEntity, String>(properties.attributestateNumber(), 150, "stateNumber");
-        ColumnConfig<TransportEntity, String> colUin = new ColumnConfig<TransportEntity, String>(properties.attributestateUin(), 55, "uin");
-        ColumnConfig<TransportEntity, String> colParkName = new ColumnConfig<TransportEntity, String>(properties.attributestateParkname(), 150, "parkname");
+        ColumnConfig<TransportEntity, Integer> colIdtransport = new ColumnConfig<TransportEntity, Integer>(properties.Idtransport(), 55, "idtransport");
+        ColumnConfig<TransportEntity, String> colstateNumber = new ColumnConfig<TransportEntity, String>(properties.stateNumber(), 150, "stateNumber");
+        ColumnConfig<TransportEntity, String> colUin = new ColumnConfig<TransportEntity, String>(properties.Uin(), 55, "uin");
+        ColumnConfig<TransportEntity, String> colParkName = new ColumnConfig<TransportEntity, String>(properties.Parkname(), 150, "parkname");
         columns.add(colIdtransport);
         columns.add(colstateNumber);
         columns.add(colUin);
