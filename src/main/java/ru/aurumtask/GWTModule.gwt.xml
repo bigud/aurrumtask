@@ -1,0 +1,11 @@
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.0//EN"
+        "http://google-web-toolkit.googlecode.com/svn/releases/2.0/distro-source/core/src/gwt-module.dtd">
+<module rename-to="GWTModule">
+    <inherits name='com.google.gwt.user.User'/>
+    <inherits name='com.sencha.gxt.ui.GXT' />
+    <!-- GXT Stylesheet -->
+    <stylesheet src="reset.css" />
+    <entry-point class='ru.aurumtask.client.GWTModule'/>
+    <source path='client' />
+    <source path='shared' />
+</module>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>ru.my</groupId>
+    <artifactId>aurrumtask</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <properties>
+        <gwtVersion>2.8.2</gwtVersion>
+        <hibernate-version>5.4.3.Final</hibernate-version>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <!-- ensure all GWT deps use the same version (unless overridden) -->
+            <dependency>
+                <groupId>com.google.gwt</groupId>
+                <artifactId>gwt</artifactId>
+                <version>${gwtVersion}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <dependencies>
+
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>7.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>5.0.1.Final</version>
+        </dependency>
+
+        <!--driver for connection to MYSql database -->
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.15</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.jboss.errai/errai-cdi-jboss -->
+        <dependency>
+            <groupId>org.jboss.errai</groupId>
+            <artifactId>errai-cdi-jboss</artifactId>
+            <version>4.6.0.Final</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-server -->
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-server</artifactId>
+            <version>9.4.19.v20190610</version>
+        </dependency>
+
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+
+
+</project>
